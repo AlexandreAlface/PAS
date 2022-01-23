@@ -17,44 +17,52 @@
     {
       "id": 1,
       "nome_cliente": null,
-      "Pedido":[]
+      "Pedido":[{
+      "idPedido":"null"}]
     },
     {
       "id": 2,
       "nome_cliente": null,
-      "Pedido":[]
+      "Pedido":[{
+      "idPedido":"null"}]
     },
       {
       "id": 3,
       "nome_cliente": null,
-      "Pedido":[]
+      "Pedido":[{
+      "idPedido":"null"}]
     },
     {
       "id": 4,
       "nome_cliente": null,
-      "Pedido":[]
+      "Pedido":[{
+      "idPedido":"null"}]
     }
   ],
   "Balcao": [
     {
       "id": 1,
       "nome_cliente": null,
-      "Pedido":[]
+      "Pedido":[{
+      "idPedido":"null"}]
     },
     {
       "id": 2,
       "nome_cliente": null,
-      "Pedido":[]
+      "Pedido":[{
+      "idPedido":"null"}]
     },
     {
       "id": 3,
       "nome_cliente": null,
-     "Pedido":[]
+      "Pedido":[{
+      "idPedido":"null"}]
     },
     {
       "id": 4,
       "nome_cliente": null,
-     "Pedido":[]
+      "Pedido":[{
+      "idPedido":"null"}]
     }
   ],
   "Comida": [
