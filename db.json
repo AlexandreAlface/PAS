@@ -106,23 +106,5 @@
       "nome": "Doce da Casa",
       "valor" : 3.50
     }
-  ],
-  "Pedidos": [
-    {
-      "Id": 1,
-      "IdMesa": 1
-    }
-    ],
-  "ComidasPorPedido": [
-      {
-        "IdPedido": 1,
-        "IdComida": 1,
-        "Quantidade": 2
-      },
-      {
-        "IdPedido": 1,
-        "IdComida": 2,
-        "Quantidade": 1
-      }
-    ]
+  ]
 }
