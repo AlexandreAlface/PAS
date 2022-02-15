@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">POS_System</string>
+    <string name="Login">Login</string>
+    <string name="Username">Username</string>
+    <string name="Password">Password</string>
+    <string name="Enter">Enter</string>
+    <string name="CreateAccount">Create a Account</string>
+    <string name="LoginWrong">Username or Password Wrong</string>
+    <string name="Welcome">Welcome</string>
+    <string name="AccountRegister">Account Register</string>
+    <string name="Name">Name</string>
+    <string name="Register">Create Account</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

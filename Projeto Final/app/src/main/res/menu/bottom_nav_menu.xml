@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Mesas"
+        android:id="@+id/mesas"
+        android:icon="@drawable/table"/>
+
+    <item android:title="Balcao"
+        android:id="@+id/balcao"
+        android:icon="@drawable/balcao"/>
+
+    <item android:title="Payment"
+        android:id="@+id/payment"
+        android:icon="@drawable/ic_baseline_payment_24"/>
+
+
+</menu>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_grahp"
+    app:startDestination="@id/mesasFragment">
+
+    <fragment
+        android:id="@+id/mesasFragment"
+        android:name="com.pas.pos_system.fragments.MesasFragment"
+        android:label="mesas_fragment2"
+        tools:layout="@layout/mesas_fragment">
+        <action
+            android:id="@+id/action_mesasFragment_to_comidaFragment"
+            app:destination="@id/comidaFragment" />
+        <argument
+            android:name="idMesa"
+            app:argType="long" />
+    </fragment>
+    <fragment
+        android:id="@+id/balcaoFragment"
+        android:name="com.pas.pos_system.fragments.BalcaoFragment"
+        android:label="balcao_fragment"
+        tools:layout="@layout/balcao_fragment" >
+        <action
+            android:id="@+id/action_balcaoFragment_to_comidaFragment"
+            app:destination="@id/comidaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/comidaFragment"
+        android:name="com.pas.pos_system.fragments.ComidaFragment"
+        android:label="comida_fragment"
+        tools:layout="@layout/comida_fragment" />
+    <fragment
+        android:id="@+id/pedidosPaymentFragment"
+        android:name="com.pas.pos_system.fragments.PedidosPaymentFragment"
+        android:label="pedidos_payment_fragment"
+        tools:layout="@layout/pedidos_payment_fragment" >
+        <action
+            android:id="@+id/action_pedidosPaymentFragment_to_paymentFragment"
+            app:destination="@id/paymentFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/paymentFragment"
+        android:name="com.pas.pos_system.fragments.PaymentFragment"
+        android:label="payment_fragment"
+        tools:layout="@layout/payment_fragment" />
+</navigation>
