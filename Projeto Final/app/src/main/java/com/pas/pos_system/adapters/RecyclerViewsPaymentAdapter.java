@@ -47,10 +47,9 @@ public class RecyclerViewsPaymentAdapter extends RecyclerView.Adapter<RecyclerVi
 
         Comidas comida = AppDataBase.getInstance(RecyclerViewsPaymentAdapter.this.context).comidasDao().getComidaId(comidasPorPedidos.getIdComida());
 
+        holder.textViewComidaPayment.setText(comida.getNome());
 
-        holder.textViewComidaPayment.setText(""+ comida.getNome());
-
-        holder.textViewQuantidadePayment.setText(""+ comida.getValor());
+        holder.textViewQuantidadePayment.setText(comida.getValor() +"€");
 
         holder.root.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
@@ -58,7 +57,7 @@ public class RecyclerViewsPaymentAdapter extends RecyclerView.Adapter<RecyclerVi
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(RecyclerViewsPaymentAdapter.this.context);
                 builder.setTitle("Eliminar Pedido");
-                builder.setMessage("Tem a certeza que pretende esta Comida " + comidasPorPedidos.getIdComida() + "?");
+                builder.setMessage("Tem a certeza que pretende esta Comida " + comida.getNome() + "?");
                 builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -70,9 +69,9 @@ public class RecyclerViewsPaymentAdapter extends RecyclerView.Adapter<RecyclerVi
                     public void onClick(DialogInterface dialog, int which) {
                         AppDataBase.getInstance(RecyclerViewsPaymentAdapter.this.context).comidasPorPedidos().deletByComida(comidasPorPedidos.getIdComida());
                         comidasPorPedidosList.remove(comidasPorPedidos);
-                        notifyDataSetChanged();
                         Repository repository = new Repository(context);
                         repository.delete(comidasPorPedidos.getIdPedido());
+                        notifyDataSetChanged();
                         dialog.dismiss();
                     }
                 });

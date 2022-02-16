@@ -101,6 +101,8 @@ public class PaymentFragment extends Fragment {
 
                     mViewModel.deleteComidasPorPedido(idPedido);
                     mViewModel.delete(idPedido);
+                    conta = 0;
+                    textViewValor.setText(conta + "€");
 
                 }
             }
@@ -114,6 +116,8 @@ public class PaymentFragment extends Fragment {
 
         this.mViewModel = new ViewModelProvider(this).get(PaymentViewModel.class);
         this.mViewModel.updatePedidosList(idPedido);
+
+
 
 
     }

@@ -14,7 +14,6 @@
             android:id="@+id/textViewPagamento"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
             android:text="Pagamento"
             android:textColor="@color/black"
             android:textSize="30sp"
@@ -26,14 +25,13 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewPayment"
             android:layout_width="0dp"
-            android:layout_height="522dp"
-            android:layout_marginBottom="45dp"
-            app:layout_constraintBottom_toTopOf="@+id/buttonPayment"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/textViewValor"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.7">
+            app:layout_constraintTop_toBottomOf="@+id/textViewPagamento"
+            app:layout_constraintVertical_bias="0.0">
 
         </androidx.recyclerview.widget.RecyclerView>
 
@@ -41,8 +39,10 @@
             android:id="@+id/textViewValor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="21dp"
-            android:text="TextView"
+            android:text="Valor"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/buttonPayment"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

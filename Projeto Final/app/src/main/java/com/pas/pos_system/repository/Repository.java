@@ -63,17 +63,18 @@ public class Repository {
             @Override
             public void onResponse(Call<List<Utilizadores>>call, Response<List<Utilizadores>> response) {
 
-                List<Utilizadores> res = response.body();
+                if(response.isSuccessful()) {
+                    List<Utilizadores> res = response.body();
+                    if(res.size()==1)
+                    {
+                        HomeActivity.startActivity(context);
 
-                if(res.size()==1)
-                {
-                    HomeActivity.startActivity(context);
-
-
+                    }
                 }
                 else
                 {
-                    Toast.makeText(context, R.string.LoginWrong, Toast.LENGTH_LONG).show();
+                    Toast.makeText(context, "Username ou Password Errados", Toast.LENGTH_LONG).show();
+                    call.cancel();
                 }
 
             }
@@ -81,7 +82,6 @@ public class Repository {
             @Override
             public void onFailure(Call<List<Utilizadores>> call, Throwable t) {
 
-                t.printStackTrace();
 
                 Toast.makeText(context, "erro request", Toast.LENGTH_LONG).show();
 

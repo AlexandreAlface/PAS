@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.pas.pos_system.R;
 import com.pas.pos_system.viewModels.LoginViewModel;
@@ -33,11 +34,26 @@ public class LoginActivity extends AppCompatActivity {
 
     public void login(View view) {
 
+        validateLogin();
+
+    }
+
+    public void validateLogin(){
+
         String username = this.editTextUsername.getText().toString();
         String password = this.editTextPassword.getText().toString();
 
-        this.mViewModel = new ViewModelProvider(this).get(LoginViewModel.class);
-        this.mViewModel.login(this,username,password);
+        if (username.equals("") || password.equals("")) {
+
+            Toast.makeText(this, "Erro Falta Preencher Dados", Toast.LENGTH_LONG).show();
+
+        }
+        else{
+
+            this.mViewModel = new ViewModelProvider(this).get(LoginViewModel.class);
+            this.mViewModel.login(this,username,password);
+        }
+
     }
 
     public void CreateAccount(View view) {

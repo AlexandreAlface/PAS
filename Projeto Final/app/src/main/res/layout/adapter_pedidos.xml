@@ -7,34 +7,38 @@
 
     <View
         android:id="@+id/topView"
-        android:layout_width="0dp"
-        android:layout_height="111dp"
+        android:layout_width="174dp"
+        android:layout_height="57dp"
         android:layout_marginStart="70dp"
-        android:layout_marginTop="52dp"
         android:layout_marginEnd="70dp"
-        android:background="@drawable/round_bg"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@drawable/roud_lugar"
+        android:foregroundGravity="center"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textViewPedido"
-            android:layout_width="197dp"
-            android:layout_height="82dp"
+            android:layout_width="169dp"
+            android:layout_height="59dp"
             android:layout_gravity="center"
             android:foregroundGravity="center"
             android:gravity="center"
             android:text="Numero de Pedido"
             android:textColor="#FFFCFC"
-            android:textSize="30sp"
+            android:textSize="20sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/topView"
             app:layout_constraintEnd_toEndOf="@+id/topView"
             app:layout_constraintStart_toStartOf="@+id/topView"
-            app:layout_constraintTop_toTopOf="@+id/topView"
-            app:layout_constraintVertical_bias="0.413" />
+            app:layout_constraintTop_toTopOf="parent" />
+
+    <Space
+        android:layout_width="408dp"
+        android:layout_height="63dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topView" />
 
 
 
