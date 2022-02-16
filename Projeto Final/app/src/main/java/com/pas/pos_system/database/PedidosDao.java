@@ -17,6 +17,7 @@ public interface PedidosDao {
     @Query("SELECT * FROM Pedidos")
     LiveData<List<Pedidos>> getPedidos();
 
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void add(List<Pedidos> postList);
 

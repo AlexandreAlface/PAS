@@ -46,11 +46,11 @@ public class RecyclerViewPedidosAdapter extends RecyclerView.Adapter<RecyclerVie
 
         if(pedidos.getIdMesa()!= 0){
 
-            holder.textViewPedido.setText("Pedido Mesa " + pedidos.getId());
+            holder.textViewPedido.setText("Pedido Mesa " + pedidos.getIdMesa());
 
         }else {
 
-            holder.textViewPedido.setText("Pedido Balcao " + pedidos.getId());
+            holder.textViewPedido.setText("Pedido Balcao " + pedidos.getIdBalcao());
         }
 
         holder.root.setOnClickListener(new View.OnClickListener() {
@@ -66,8 +66,6 @@ public class RecyclerViewPedidosAdapter extends RecyclerView.Adapter<RecyclerVie
 
                 NavController navController = Navigation.findNavController(v);
                 navController.navigate(R.id.action_pedidosPaymentFragment_to_paymentFragment, data);
-
-
 
             }
         });
