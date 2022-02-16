@@ -84,10 +84,9 @@ public class PaymentFragment extends Fragment {
             Comidas comida = AppDataBase.getInstance(getContext()).comidasDao().getComidaId(comidasPorPedidos.get(i).getIdComida());
 
             conta += comida.getValor();
-            textViewValor.setText(""+conta);
+            textViewValor.setText(conta +"€");
+
         }
-
-
 
         button = view.findViewById(R.id.buttonPayment);
 
@@ -104,7 +103,6 @@ public class PaymentFragment extends Fragment {
                     mViewModel.delete(idPedido);
 
                 }
-
             }
         });
 
@@ -116,6 +114,7 @@ public class PaymentFragment extends Fragment {
 
         this.mViewModel = new ViewModelProvider(this).get(PaymentViewModel.class);
         this.mViewModel.updatePedidosList(idPedido);
+
 
     }
 

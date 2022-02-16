@@ -68,7 +68,7 @@ public class RecyclerViewsPaymentAdapter extends RecyclerView.Adapter<RecyclerVi
                 builder.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        //AppDataBase.getInstance(RecyclerViewsPaymentAdapter.this.context).comidasPorPedidos().delete(comidasPorPedidos.getIdPedido());
+                        AppDataBase.getInstance(RecyclerViewsPaymentAdapter.this.context).comidasPorPedidos().deletByComida(comidasPorPedidos.getIdComida());
                         comidasPorPedidosList.remove(comidasPorPedidos);
                         notifyDataSetChanged();
                         Repository repository = new Repository(context);

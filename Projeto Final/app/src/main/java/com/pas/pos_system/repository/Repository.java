@@ -377,7 +377,7 @@ public class Repository {
 
     public void deleteComidasPorPedido(long idPedido) {
 
-        this.comidasPorPedidosDao.delete(idPedido);
+        this.comidasPorPedidosDao.deletByPedido(idPedido);
 
     }
 

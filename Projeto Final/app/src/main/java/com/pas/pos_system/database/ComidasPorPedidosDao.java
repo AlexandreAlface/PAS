@@ -20,8 +20,11 @@ public interface ComidasPorPedidosDao {
     @Query("SELECT * FROM ComidasPorPedidos WHERE idPedido = :idPedido")
     List<ComidasPorPedidos> getComidasPorPedidosLocal(long idPedido);
 
-    @Query("DELETE FROM ComidasPorPedidos WHERE idPedido = :idPedido")
-    void delete(long idPedido);
+    @Query("DELETE  FROM ComidasPorPedidos WHERE idPedido = :idPedido")
+    void deletByPedido(long idPedido);
+
+    @Query("DELETE  FROM ComidasPorPedidos WHERE idComida = :idComida")
+    void deletByComida(long idComida);
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void add(List<ComidasPorPedidos> postList);

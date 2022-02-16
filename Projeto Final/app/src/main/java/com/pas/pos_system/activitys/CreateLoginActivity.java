@@ -53,13 +53,17 @@ public class CreateLoginActivity extends AppCompatActivity {
         String password = editTextPassword.getText().toString();
         String verificacion = editTextVerificacionPassword.getText().toString();
 
-        if (name.equals("") || username.equals("") || password.equals("") || verificacion.equals("") || !password.equals(verificacion)) {
+        if (name.equals("") || username.equals("") || password.equals("") || verificacion.equals("") ) {
 
-            Toast.makeText(this, "Erro ao criar", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Erro Falta Preencher Dados", Toast.LENGTH_LONG).show();
 
-        }else {
+        }else if(!password.equals(verificacion)) {
+
+            Toast.makeText(this, "Palavra passe não é igual", Toast.LENGTH_LONG).show();
+        }
+        else{
             this.mViewModel = new ViewModelProvider(this).get(CreateLoginViewModel.class);
-            this.mViewModel.createLogin(this, this.editTextUserName.getText().toString(), this.editTextPassword.getText().toString(), this.editTextName.getText().toString());
+            this.mViewModel.createLogin(this, username, password, name);
         }
 
     }
