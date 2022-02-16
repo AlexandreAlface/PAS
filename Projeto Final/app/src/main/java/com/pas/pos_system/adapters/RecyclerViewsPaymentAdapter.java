@@ -3,22 +3,18 @@ package com.pas.pos_system.adapters;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.pas.pos_system.R;
 import com.pas.pos_system.database.AppDataBase;
 import com.pas.pos_system.models.Comidas;
 import com.pas.pos_system.models.ComidasPorPedidos;
-import com.pas.pos_system.models.Pedidos;
 import com.pas.pos_system.repository.Repository;
 
 import java.util.ArrayList;
@@ -28,6 +24,7 @@ public class RecyclerViewsPaymentAdapter extends RecyclerView.Adapter<RecyclerVi
 
     private final Context context;
     private List<ComidasPorPedidos> comidasPorPedidosList;
+
 
     public RecyclerViewsPaymentAdapter(Context context) {
         this.context = context;
@@ -48,11 +45,12 @@ public class RecyclerViewsPaymentAdapter extends RecyclerView.Adapter<RecyclerVi
 
         ComidasPorPedidos comidasPorPedidos = this.comidasPorPedidosList.get(position);
 
-        //Comidas comidas = comidasList.get((int) comidasPorPedidos.getIdComida());
+        Comidas comida = AppDataBase.getInstance(RecyclerViewsPaymentAdapter.this.context).comidasDao().getComidaId(comidasPorPedidos.getIdComida());
 
-        holder.textViewComidaPayment.setText(""+ comidasPorPedidos.getIdComida());
 
-        holder.textViewQuantidadePayment.setText(""+ comidasPorPedidos.getQuantidade());
+        holder.textViewComidaPayment.setText(""+ comida.getNome());
+
+        holder.textViewQuantidadePayment.setText(""+ comida.getValor());
 
         holder.root.setOnLongClickListener(new View.OnLongClickListener() {
             @Override

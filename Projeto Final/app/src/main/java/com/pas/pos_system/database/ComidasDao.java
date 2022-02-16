@@ -16,6 +16,9 @@ public interface ComidasDao {
     @Query("SELECT * FROM Comidas")
     LiveData<List<Comidas>> getComida();
 
+    @Query("SELECT * FROM Comidas WHERE id = :id")
+    Comidas getComidaId (long id);
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void add(List<Comidas> postList);
 

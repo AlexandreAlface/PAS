@@ -27,19 +27,31 @@
             android:id="@+id/recyclerViewPayment"
             android:layout_width="0dp"
             android:layout_height="522dp"
+            android:layout_marginBottom="45dp"
             app:layout_constraintBottom_toTopOf="@+id/buttonPayment"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.814">
+            app:layout_constraintVertical_bias="0.7">
 
         </androidx.recyclerview.widget.RecyclerView>
+
+        <TextView
+            android:id="@+id/textViewValor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="21dp"
+            android:text="TextView"
+            app:layout_constraintBottom_toTopOf="@+id/buttonPayment"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <Button
             android:id="@+id/buttonPayment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="48dp"
+            android:layout_marginBottom="16dp"
             android:text="Payment"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

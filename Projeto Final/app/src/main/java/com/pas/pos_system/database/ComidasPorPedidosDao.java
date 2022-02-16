@@ -17,6 +17,9 @@ public interface ComidasPorPedidosDao {
     @Query("SELECT * FROM ComidasPorPedidos WHERE idPedido = :idPedido")
     LiveData<List<ComidasPorPedidos>> getComidasPorPedidos(long idPedido);
 
+    @Query("SELECT * FROM ComidasPorPedidos WHERE idPedido = :idPedido")
+    List<ComidasPorPedidos> getComidasPorPedidosLocal(long idPedido);
+
     @Query("DELETE FROM ComidasPorPedidos WHERE idPedido = :idPedido")
     void delete(long idPedido);
 

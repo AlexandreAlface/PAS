@@ -22,8 +22,6 @@ import com.pas.pos_system.models.Pedidos;
 import com.pas.pos_system.models.Utilizadores;
 import com.pas.pos_system.posts.ComidasPorPedidoPost;
 import com.pas.pos_system.posts.CreateLoginPost;
-import com.pas.pos_system.posts.PedidoPostByBalcao;
-import com.pas.pos_system.posts.PedidoPostByMesa;
 import com.pas.pos_system.webServices.ApiService;
 import com.pas.pos_system.webServices.DataSource;
 
@@ -41,7 +39,10 @@ public class Repository {
     private PedidosDao pedidosDao;
     private ComidasPorPedidosDao comidasPorPedidosDao;
 
+
     ComidasPorPedidoPost pedidoPost;
+
+
 
     public Repository(Context context) {
 
@@ -219,56 +220,6 @@ public class Repository {
             }
         });
 
-    }
-
-    public void postPedidoMesa(Context context, long idLugar) {
-
-        ApiService apiService = DataSource.getAPIService();
-
-        PedidoPostByMesa pedidoPost = new PedidoPostByMesa(idLugar, 0);
-
-        Call<PedidoPostByMesa> postPedidos = apiService.postPedidoByMesa(pedidoPost);
-
-        postPedidos.enqueue(new Callback<PedidoPostByMesa>() {
-            @Override
-            public void onResponse(Call<PedidoPostByMesa> call, Response<PedidoPostByMesa> response) {
-
-                Toast.makeText(context, "É bem", Toast.LENGTH_LONG).show();
-
-            }
-
-            @Override
-            public void onFailure(Call<PedidoPostByMesa> call, Throwable t) {
-
-                Toast.makeText(context, "Burro", Toast.LENGTH_LONG).show();
-
-            }
-        });
-    }
-
-    public void postPedidoBalcao(Context context, long idLugar) {
-
-        ApiService apiService = DataSource.getAPIService();
-
-        PedidoPostByBalcao pedidoPost = new PedidoPostByBalcao(0,idLugar);
-
-        Call<PedidoPostByBalcao> postPedidos = apiService.postPedidoByBalcao(pedidoPost);
-
-        postPedidos.enqueue(new Callback<PedidoPostByBalcao>() {
-            @Override
-            public void onResponse(Call<PedidoPostByBalcao> call, Response<PedidoPostByBalcao> response) {
-
-                Toast.makeText(context, "É bem", Toast.LENGTH_LONG).show();
-
-            }
-
-            @Override
-            public void onFailure(Call<PedidoPostByBalcao> call, Throwable t) {
-
-                Toast.makeText(context, "Burro", Toast.LENGTH_LONG).show();
-
-            }
-        });
     }
 
 

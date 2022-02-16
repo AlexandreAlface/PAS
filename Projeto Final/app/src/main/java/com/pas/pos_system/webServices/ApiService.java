@@ -39,6 +39,9 @@ public interface ApiService {
     @GET("comida/getAllComida")
     Call<List<Comidas>> getComida();
 
+    @GET("comida/getComida/{id}")
+    Call<Comidas> getComidaById(@Path("id")Long id);
+
     @POST("pedidos/createPedido")
     Call<PedidoPostByMesa> postPedidoByMesa(@Body PedidoPostByMesa pedidoPost);
 

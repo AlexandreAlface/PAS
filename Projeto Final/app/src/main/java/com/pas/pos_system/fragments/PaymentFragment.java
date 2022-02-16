@@ -16,10 +16,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.pas.pos_system.R;
 import com.pas.pos_system.adapters.RecyclerViewPedidosAdapter;
 import com.pas.pos_system.adapters.RecyclerViewsPaymentAdapter;
+import com.pas.pos_system.database.AppDataBase;
+import com.pas.pos_system.models.Comidas;
 import com.pas.pos_system.models.ComidasPorPedidos;
 import com.pas.pos_system.models.Pedidos;
 import com.pas.pos_system.viewModels.PaymentViewModel;
@@ -33,6 +36,8 @@ public class PaymentFragment extends Fragment {
 
     private long idPedido;
     private int pagamento;
+    private TextView textViewValor;
+    private float conta = 0;
 
     private Button button;
 
@@ -54,6 +59,8 @@ public class PaymentFragment extends Fragment {
         idPedido = (long) extras.get("idPedido");
         pagamento = (int) extras.get("pagamento");
 
+        this.textViewValor = view.findViewById(R.id.textViewValor);
+
         RecyclerViewsPaymentAdapter adapter;
 
         RecyclerView recyclerViewPayment = view.findViewById(R.id.recyclerViewPayment);
@@ -69,6 +76,18 @@ public class PaymentFragment extends Fragment {
                 adapter.updateList(comidasPorPedidos);
             }
         });
+
+        List<ComidasPorPedidos> comidasPorPedidos = AppDataBase.getInstance(getContext()).comidasPorPedidos().getComidasPorPedidosLocal(idPedido);
+
+        for (int i = 0; i < comidasPorPedidos.size(); i++) {
+
+            Comidas comida = AppDataBase.getInstance(getContext()).comidasDao().getComidaId(comidasPorPedidos.get(i).getIdComida());
+
+            conta += comida.getValor();
+            textViewValor.setText(""+conta);
+        }
+
+
 
         button = view.findViewById(R.id.buttonPayment);
 
