@@ -43,7 +43,7 @@ public class LoginActivity extends AppCompatActivity {
         String username = this.editTextUsername.getText().toString();
         String password = this.editTextPassword.getText().toString();
 
-        if (username.equals("") || password.equals("")) {
+        if (username.isEmpty() || password.isEmpty()) {
 
             Toast.makeText(this, "Erro Falta Preencher Dados", Toast.LENGTH_SHORT).show();
 

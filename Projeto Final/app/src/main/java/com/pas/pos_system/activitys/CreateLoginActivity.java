@@ -53,7 +53,7 @@ public class CreateLoginActivity extends AppCompatActivity {
         String password = editTextPassword.getText().toString();
         String verificacion = editTextVerificacionPassword.getText().toString();
 
-        if (name.equals("") || username.equals("") || password.equals("") || verificacion.equals("") ) {
+        if (name.isEmpty() || username.isEmpty() || password.isEmpty() || verificacion.isEmpty() ) {
 
             Toast.makeText(this, "Erro Falta Preencher Dados", Toast.LENGTH_SHORT).show();
 
