@@ -57,7 +57,7 @@ public class RecyclerViewMesasAdapter extends RecyclerView.Adapter<RecyclerViewM
             @Override
             public void onClick(View v) {
 
-                Toast.makeText(context, "mesa " + mesas.getId() + " escolhida", Toast.LENGTH_LONG).show();
+                Toast.makeText(context, "mesa " + mesas.getId() + " escolhida", Toast.LENGTH_SHORT).show();
 
                 Bundle data = new Bundle();
                 data.putLong("idLugar", mesas.getId());

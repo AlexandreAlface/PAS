@@ -57,7 +57,7 @@ public class RecyclerViewComidasAdapter extends RecyclerView.Adapter<RecyclerVie
 
                 Repository repository = new Repository(v.getContext());
 
-                Toast.makeText(context, "comida " + comida.getNome() + " adicionado ao pedido", Toast.LENGTH_LONG).show();
+                Toast.makeText(context, "comida " + comida.getNome() + " adicionado ao pedido", Toast.LENGTH_SHORT).show();
 
                 if(tipoLugar.equals(true)){
                     //repository.postPedidoMesa(v.getContext(),idLugar);

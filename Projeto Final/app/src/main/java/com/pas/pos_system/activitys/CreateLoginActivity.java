@@ -55,11 +55,11 @@ public class CreateLoginActivity extends AppCompatActivity {
 
         if (name.equals("") || username.equals("") || password.equals("") || verificacion.equals("") ) {
 
-            Toast.makeText(this, "Erro Falta Preencher Dados", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Erro Falta Preencher Dados", Toast.LENGTH_SHORT).show();
 
         }else if(!password.equals(verificacion)) {
 
-            Toast.makeText(this, "Palavra passe não é igual", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Palavra passe não é igual", Toast.LENGTH_SHORT).show();
         }
         else{
             this.mViewModel = new ViewModelProvider(this).get(CreateLoginViewModel.class);

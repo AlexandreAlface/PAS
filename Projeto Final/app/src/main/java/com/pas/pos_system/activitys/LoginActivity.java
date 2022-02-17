@@ -45,7 +45,7 @@ public class LoginActivity extends AppCompatActivity {
 
         if (username.equals("") || password.equals("")) {
 
-            Toast.makeText(this, "Erro Falta Preencher Dados", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Erro Falta Preencher Dados", Toast.LENGTH_SHORT).show();
 
         }
         else{

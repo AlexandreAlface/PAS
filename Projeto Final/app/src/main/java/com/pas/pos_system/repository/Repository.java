@@ -73,7 +73,7 @@ public class Repository {
                 }
                 else
                 {
-                    Toast.makeText(context, "Username ou Password Errados", Toast.LENGTH_LONG).show();
+                    Toast.makeText(context, "Username ou Password Errados", Toast.LENGTH_SHORT).show();
                     call.cancel();
                 }
 
@@ -83,7 +83,7 @@ public class Repository {
             public void onFailure(Call<List<Utilizadores>> call, Throwable t) {
 
 
-                Toast.makeText(context, "erro request", Toast.LENGTH_LONG).show();
+                Toast.makeText(context, "erro request", Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -92,31 +92,59 @@ public class Repository {
     public void createLogin(Context context, String username, String password, String name)
     {
 
-
             CreateLoginPost createLoginPost = new CreateLoginPost(username, password, name);
 
             ApiService apiService = DataSource.getAPIService();
 
-            Call<CreateLoginPost> call = apiService.createLogin(createLoginPost);
+        Call<List<Utilizadores>> callLogin = apiService.login(username,password);
 
-            call.enqueue(new Callback<CreateLoginPost>() {
-                @Override
-                public void onResponse(Call<CreateLoginPost> call, Response<CreateLoginPost> response) {
+        callLogin.enqueue(new Callback<List<Utilizadores>>() {
+            @Override
+            public void onResponse(Call<List<Utilizadores>>call, Response<List<Utilizadores>> response) {
 
-                    Toast.makeText(context, "Login Criado", Toast.LENGTH_LONG).show();
-                    LoginActivity.startActivity(context);
+                if(response.isSuccessful()) {
+                    List<Utilizadores> res = response.body();
+                    if(res.size()==1)
+                    {
+                        Toast.makeText(context, "Login já foi criado", Toast.LENGTH_SHORT).show();
 
+                    }
+                }
+                else
+                {
+                    Call<CreateLoginPost> callCreate = apiService.createLogin(createLoginPost);
 
+                    callCreate.enqueue(new Callback<CreateLoginPost>() {
+                        @Override
+                        public void onResponse(Call<CreateLoginPost> call, Response<CreateLoginPost> response) {
 
+                            Toast.makeText(context, "Login Criado", Toast.LENGTH_SHORT).show();
+                            LoginActivity.startActivity(context);
+
+                        }
+
+                        @Override
+                        public void onFailure(Call<CreateLoginPost> call, Throwable t) {
+
+                            Toast.makeText(context, "Dados Errados", Toast.LENGTH_SHORT).show();
+
+                        }
+                    });
                 }
 
-                @Override
-                public void onFailure(Call<CreateLoginPost> call, Throwable t) {
+            }
 
-                    Toast.makeText(context, "Dados Errados", Toast.LENGTH_LONG).show();
+            @Override
+            public void onFailure(Call<List<Utilizadores>> call, Throwable t) {
 
-                }
-            });
+
+                Toast.makeText(context, "erro request", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+
+
 
         }
 

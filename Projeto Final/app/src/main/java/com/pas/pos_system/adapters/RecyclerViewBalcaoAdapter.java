@@ -49,7 +49,7 @@ public class RecyclerViewBalcaoAdapter extends RecyclerView.Adapter<RecyclerView
             @Override
             public void onClick(View v) {
 
-                Toast.makeText(context, "balcao " + balcao.getId() + " escolhido", Toast.LENGTH_LONG).show();
+                Toast.makeText(context, "balcao " + balcao.getId() + " escolhido", Toast.LENGTH_SHORT).show();
 
                 Bundle data = new Bundle();
 
